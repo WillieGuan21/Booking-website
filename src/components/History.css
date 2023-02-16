@@ -1,0 +1,22 @@
+.card-container{
+  display: flex;
+  gap:10px;
+  justify-content: center;
+}
+
+.del-price{
+  color:#8A8A8A;
+}
+
+.item-title{
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-title i{
+  margin-right: 10px;
+}
+
+.cards img{
+  width: 100%;
+}

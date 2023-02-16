@@ -1,0 +1,101 @@
+.recommand{
+  margin-top:20px;
+}
+
+.recommand-container{
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:auto;
+}
+
+.title{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.promoions-container{
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:auto;
+}
+
+.history-container{
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:auto;
+}
+
+/* Promotions start */
+.promoions-body{
+  display: grid;
+  grid-gap:10px;
+  grid-template-columns: repeat(3,auto);
+}
+
+.cards{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+.cards img{
+  width: 100%;
+  height: 172px;
+  object-fit: cover;
+}
+
+.item-title{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.item-title i{
+  margin-right: 10px;
+}
+
+.title-name , .price-name{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.item-location i{
+  margin-right: 10px;
+}
+
+.del-price{
+  color:#8A8A8A;
+}
+
+.viewAll-btn{
+  display: flex;
+  justify-content: center;
+  margin-top:20px;
+}
+/* Promotions end */
+
+
+/* History start */
+.history{
+  margin-bottom: 40px;
+}
+
+/* History end */
+
+/* Filter start */
+.filter{
+  max-width: 1280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:auto;
+  margin-top:20px;
+}
+/* Filter end */

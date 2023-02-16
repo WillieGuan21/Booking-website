@@ -1,0 +1,27 @@
+.navbar-container{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  max-width: 1280px;
+  margin:auto;
+}
+
+.navbar-menu{
+  display: grid;
+  grid-template-columns: repeat(5,auto);
+  grid-gap:10px;
+  list-style: none;
+  text-align: center;
+  width: 60vw;
+  justify-content: end;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  color:#3350B8;
+}

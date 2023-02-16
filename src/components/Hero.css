@@ -1,0 +1,27 @@
+.hero{
+  background-image: url('../../public/images/Frame\ 1106.png');
+  height:210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-container{
+  max-width: 1280px;
+  display: grid;
+  grid-template-columns: repeat(5,auto);
+  grid-gap:10px;
+  text-align: center;
+  justify-content: center;
+  height:100px;
+}
+
+.items-container{
+  padding:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

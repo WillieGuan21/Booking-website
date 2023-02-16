@@ -1,0 +1,45 @@
+.dia-container{
+  margin-bottom: 20px;
+}
+
+.dia-title{
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.dia-property{
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  justify-content: start;
+  margin: auto;
+}
+
+.dia-property img{
+  width: 100%;
+}
+
+.dia-facilities{
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  margin: auto;
+}
+
+.dia-facilities img{
+  width: 100%;
+}
+
+.dia-actionBox{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap:10px;
+  padding-left: 12px;
+  padding-right:12px;
+}
+
+.dia-actionBox button{
+  width: 100%;
+}
