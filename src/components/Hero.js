@@ -18,10 +18,10 @@ const theme = createTheme({
           // color: red;
         }
         .MuiOutlinedInput-root:hover{
-          // border:1px solid red;
+          border-radious:0px;
         }
         .MuiInputBase-input:hover{
-          // border:1px solid red;
+          border-radious:0px;
         }
       `,
     },
@@ -51,7 +51,7 @@ function Hero({showFilterBtn}) {
             <ThemeProvider theme={theme}>
               <CssBaseline />
               <TextField
-                sx={{backgroundColor:'#fff',borderRadius:'4px'}}
+                sx={{backgroundColor:'#fff',borderRadius:'0px'}}
                 placeholder='Destination'
                 InputProps={{
                   endAdornment: (
@@ -76,9 +76,9 @@ function Hero({showFilterBtn}) {
                 }}
                 renderInput={(startProps, endProps) => (
                   <React.Fragment>
-                    <TextField {...startProps} sx={{backgroundColor:'#fff',borderRadius:'4px'}}/>
+                    <TextField {...startProps} sx={{backgroundColor:'#fff',borderRadius:'0px'}}/>
                     <Box sx={{ mx: 2 }}> to </Box>
-                    <TextField {...endProps} sx={{backgroundColor:'#fff',borderRadius:'4px'}}/>
+                    <TextField {...endProps} sx={{backgroundColor:'#fff',borderRadius:'0px'}}/>
                   </React.Fragment>
                 )}
               />
@@ -89,7 +89,7 @@ function Hero({showFilterBtn}) {
             <FormControl fullWidth sx={{width:'200px'}}>
               <InputLabel id="demo-simple-select-label">Number of room</InputLabel>
               <Select
-                sx={{backgroundColor:'#fff',borderRadius:'4px'}}
+                sx={{backgroundColor:'#fff',borderRadius:'0px'}}
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={room}
@@ -108,7 +108,7 @@ function Hero({showFilterBtn}) {
             <FormControl fullWidth sx={{width:'200px'}}>
               <InputLabel id="guest-label">Number of guest</InputLabel>
               <Select
-                sx={{backgroundColor:'#fff',borderRadius:'4px'}}
+                sx={{backgroundColor:'#fff',borderRadius:'0px'}}
                 labelId="guest-label"
                 id="demo-simple-select"
                 value={guest}
@@ -124,7 +124,7 @@ function Hero({showFilterBtn}) {
             </FormControl>
           </div>
           <div className='items-container'>
-            <Button variant="contained" sx={{ width: '58px', height: '58px' }} onClick={showFilterBtn}><SearchIcon /></Button>
+            <Button variant="contained" sx={{ width: '58px', height: '58px',borderRadius:'0px' }} onClick={showFilterBtn}><SearchIcon /></Button>
           </div>
         </div>
       </div>

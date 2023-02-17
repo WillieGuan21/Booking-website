@@ -111,7 +111,7 @@ function FilterDialog() {
 
   return (
     <>
-      <Button variant="outlined" sx={{width:'100%'}} onClick={handleClickOpen}>
+      <Button variant="outlined" sx={{width:'100%',borderRadius:'0px'}} onClick={handleClickOpen}>
         Sorting and Filter
       </Button>
       <Dialog

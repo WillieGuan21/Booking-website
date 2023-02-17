@@ -1,0 +1,23 @@
+.detail-hero img{
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.detail-container{
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:auto;
+  margin-top:40px;
+}
+
+@media screen and (max-width:1300px) {
+  .detail-hero img{
+    height: 300px;
+  }
+  .detail-container{
+    max-width: 90%;
+  }
+}

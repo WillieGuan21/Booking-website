@@ -23,3 +23,9 @@
 a{
   color:#fff;
 }
+
+@media screen and (max-width:1300px) {
+  .footer-container{
+    max-width: 90%;
+  }
+}

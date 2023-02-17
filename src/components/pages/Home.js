@@ -86,7 +86,7 @@ function Home() {
             ))}
           </div>
           <div className='viewAll-btn'>
-            <Button variant="outlined">View all</Button>
+            <Button variant="outlined" sx={{borderRadius:'0px'}}>View all</Button>
           </div>
         </div>
       </div>

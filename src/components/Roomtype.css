@@ -1,0 +1,40 @@
+.roomtype-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.roomtype-body div img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.roomtype-body .rtype-title{
+  font-size: 20px;
+  font-weight: 700;
+  margin:20px 0;
+}
+
+.roomtype-body .rtype-facilities{
+  margin-left: 20px;
+}
+
+.roomtype-body a{
+  text-decoration: underline;
+  color:black;
+}
+
+.roomtype-body .rtype-refound{
+  color:#3350B8;
+}
+
+.roomtype-body .rtype-price{
+  margin:20px 0;
+}
+
+.roomtype-body .rtype-price div:first-child{
+  font-size: 20px;
+  font-weight: 600;
+}
+
