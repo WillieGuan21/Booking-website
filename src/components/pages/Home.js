@@ -6,6 +6,7 @@ import './Home.css';
 import { Button } from '@mui/material';
 import History from '../History';
 import Dialog from '../Dialog';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [promotions, setPromotions] = useState([]);
@@ -51,7 +52,7 @@ function Home() {
               <div className='cards' id={i.id}>
                 <img src={i.img_url} />
                 <div className='item-title'>
-                  <div className='title-name'>{i.name}</div>
+                  <Link to="/detail" className='title-name'>{i.name}</Link>
                   <div>
                     <i className="fa-solid fa-heart"></i>{i.rating}
                   </div>

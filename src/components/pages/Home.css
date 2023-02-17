@@ -64,6 +64,7 @@
 .title-name , .price-name{
   font-size: 20px;
   font-weight: 700;
+  color:black;
 }
 
 .item-location i{
