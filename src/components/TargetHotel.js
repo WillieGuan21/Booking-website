@@ -7,6 +7,39 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateRangePicker } from '@mui/x-date-pickers-pro';
 import Roomtype from './Roomtype';
+import { alpha, styled } from '@mui/material/styles';
+
+
+//Customization input
+const Myinput = styled(TextField)(({ theme }) => ({
+  'label + &': {
+    marginTop: theme.spacing(3),
+  },
+  '& .MuiInputBase-root': {
+
+  },
+  '& .MuiOutlinedInput-root': {
+    borderRadius: 0,
+    position: 'relative',
+    backgroundColor: 'white',
+    // border: '1px solid #ced4da',
+    fontSize: 16,
+    width: 'auto',
+    // padding: '16.5px 14px',
+    transition: theme.transitions.create([
+      'border-color',
+      'background-color',
+      'box-shadow',
+    ]),
+    '&:focus': {
+      boxShadow: `${alpha(theme.palette.primary.main, 1)} 0 0 0 1px`,
+      borderColor: theme.palette.primary.main,
+    },
+    '&:hover': {
+      // borderColor:'red',
+    }
+  },
+}));
 
 function TargetHotel(props) {
   const [value, setValue] = useState([null, null]); //DateRangePicker
@@ -21,29 +54,16 @@ function TargetHotel(props) {
     setGuest(event.target.value);
   };
 
-  const rtypeItem1 = {
-    img:'./images/rtype01.png',
-    name:'Standard Double or Twin Room',
-    facilities:['23 sq m','Sleeps 2','1 King Bed OR 2 Single Beds','Free WiFi','Free self-parking','Reserve now, pay later'],
-    days:['Web',16,'Nov'],
-    price:280,
-  }
+  const rtype = [
+    {
+      img: ['./images/rtype01.png', './images/rtype02.png', './images/rtype03.png'],
+      name: ['Standard Double or Twin Room', 'Superior Room', 'Family Room'],
+      facilities: ['23 sq m', 'Sleeps 2', '1 King Bed OR 2 Single Beds', 'Free WiFi', 'Free self-parking', 'Reserve now, pay later'],
+      days: ['Web', 16, 'Nov'],
+      price: [280, 320, 380]
+    },
+  ]
 
-  const rtypeItem2 = {
-    img:'./images/rtype02.png',
-    name:'Superior Room',
-    facilities:['23 sq m','Sleeps 2','1 King Bed OR 2 Single Beds','Free WiFi','Free self-parking','Reserve now, pay later'],
-    days:['Web',16,'Nov'],
-    price:320,
-  }
-
-  const rtypeItem3 = {
-    img:'./images/rtype03.png',
-    name:'Family Room',
-    facilities:['23 sq m','Sleeps 2','1 King Bed OR 2 Single Beds','Free WiFi','Free self-parking','Reserve now, pay later'],
-    days:['Web',16,'Nov'],
-    price:380,
-  }
 
   return (
     <div className="target-body">
@@ -95,9 +115,9 @@ function TargetHotel(props) {
               }}
               renderInput={(startProps, endProps) => (
                 <React.Fragment>
-                  <TextField {...startProps} sx={{ backgroundColor: '#fff',  }} />
+                  <Myinput {...startProps} sx={{ backgroundColor: '#fff', }} />
                   <Box sx={{ mx: 2 }}> to </Box>
-                  <TextField {...endProps} sx={{ backgroundColor: '#fff',  }} />
+                  <Myinput {...endProps} sx={{ backgroundColor: '#fff', }} />
                 </React.Fragment>
               )}
             />
@@ -143,14 +163,14 @@ function TargetHotel(props) {
           </FormControl>
         </div>
         <div className='items-container'>
-          <Button variant="contained" sx={{ width: '58px', height: '58px',borderRadius:'0px' }} ><SearchIcon /></Button>
+          <Button variant="contained" sx={{ width: '58px', height: '58px', borderRadius: '0px' }} ><SearchIcon /></Button>
         </div>
       </div>
       <div className="title">Room type</div>
       <div className="target-session4">
-        <Roomtype rtype={rtypeItem1}/>
-        <Roomtype rtype={rtypeItem2}/>
-        <Roomtype rtype={rtypeItem3}/>
+        {rtype.map((item, index) => (
+          <Roomtype key={index} rtype={item} />
+        ))}
       </div>
     </div>
   )

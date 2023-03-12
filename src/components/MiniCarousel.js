@@ -4,23 +4,19 @@ import { Paper } from '@mui/material';
 import './MiniCarousel.css';
 
 function Example(props) {
-  var items = [
+
+  const items = [
     {
-      img1:'images/d02.png',
-      img2:'images/d03.png',
-      img3:'images/d04.png',
-      img4:'images/d05.png',
-      img5:'images/d06.png',
-      
+      img: ['images/d02.png', 'images/d03.png', 'images/d04.png', 'images/d05.png', 'images/d06.png']
     },
     {
-      img1:'images/d03.png',
-      img2:'images/d05.png',
-      img3:'images/d06.png',
-      img4:'images/d02.png',
-      img5:'images/d04.png',
-    },
+      img: ['images/d03.png', 'images/d05.png', 'images/d06.png', 'images/d02.png', 'images/d04.png']
+    }
   ]
+
+  const gotimgtext =(e)=>{
+    props.gotimage(e)
+  }
 
   return (
     <Carousel
@@ -28,41 +24,26 @@ function Example(props) {
     // prev={(prev, active) => console.log(`we left ${active}, and are now at ${prev}`)}
     >
       {
-        items.map((item, i) => <Item key={i} item={item} />)
+        items.map((item, i) => <Item key={i} item={item} gotimgtext={gotimgtext}/>)
       }
-
-
 
     </Carousel>
   );
 }
 
 function Item(props) {
+  const { img } = props.item
+
   return (
-
-    <Paper sx={{boxShadow:'none'}}>
-
+    <Paper sx={{ boxShadow: 'none' }}>
       <div className='card-container'>
-        <div className='cards'>
-          <img src={props.item.img1} alt=''/>
-        </div>
-        <div className='cards'>
-          <img src={props.item.img2} alt=''/>
-        </div>
-        <div className='cards'>
-          <img src={props.item.img3} alt=''/>
-        </div> 
-        <div className='cards'>
-          <img src={props.item.img4} alt=''/>
-        </div> 
-        <div className='cards'>
-          <img src={props.item.img5} alt=''/>
-        </div> 
+        {img.map((image, index) => (
+          <div className='cards' key={index}>
+            <img src={image} alt={index} onClick={()=>props.gotimgtext(image)}/>
+          </div>
+        ))}
       </div>
-
     </Paper>
-
-
   )
 }
 

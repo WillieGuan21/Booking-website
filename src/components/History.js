@@ -2,140 +2,81 @@ import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import { Paper, Button } from '@mui/material';
 import './History.css';
+import { Link } from 'react-router-dom';
 
-function Example(props) {
-  var items = [
+function HotelCarousel(props) {
+  const hotels = [
     {
-      img1:'images/h07.png',
-      img2:'images/h08.png',
-      img3:'images/h09.png',
-      title1: 'Targeted Hotel',
-      title2: 'WestFire Hotel',
-      title3: 'Sydney Hotel',
-      point1: 10,
-      point2: 8.9,
-      point3: 7,
-      prePrice1: 300,
-      prePrice2: 400,
-      prePrice3: 500,
-      crrPrice1: 280,
-      crrPrice2: 380,
-      crrPrice3: 480,
-      descriptions: 'Beautiful Hotel description here. Hotel locate along to beautidul beachside. Each room in...',
+      img: ['images/h07.png', 'images/h08.png', 'images/h09.png'],
+      title: ['Targeted Hotel', 'WestFire Hotel', 'Sydney Hotel'],
+      points: [10, 8.9, 7],
+      prePrices: [300, 400, 500],
+      crrPrices: [280, 380, 480],
+      star:[4,3,5],
+      description: 'Beautiful hotel description here. The hotel is located along a beautiful beachside. Each room...',
     },
     {
-      img1:'images/h10.png',
-      img2:'images/h11.png',
-      img3:'images/h12.png',
-      title1: 'Inn Hotel',
-      title2: 'GreenHouse Hotel',
-      title3: 'RedDoor Hotel',
-      point1: 10,
-      point2: 8.9,
-      point3: 7,
-      prePrice1: 300,
-      prePrice2: 400,
-      prePrice3: 500,
-      crrPrice1: 280,
-      crrPrice2: 380,
-      crrPrice3: 480,
-      descriptions: 'Beautiful Hotel description here. Hotel locate along to beautidul beachside. Each room in...'
+      img: ['images/h10.png', 'images/h11.png', 'images/h12.png'],
+      title: ['Inn Hotel', 'GreenHouse Hotel', 'RedDoor Hotel'],
+      points: [10, 8.9, 7],
+      prePrices: [300, 400, 500],
+      crrPrices: [280, 380, 480],
+      star:[5,2,4],
+      description: 'Beautiful hotel description here. The hotel is located along a beautiful beachside. Each room...',
     },
-  ]
+  ];
 
   return (
-    <Carousel
-    // next={(next, active) => console.log(`we left ${active}, and are now at ${next}`)}
-    // prev={(prev, active) => console.log(`we left ${active}, and are now at ${prev}`)}
-    >
-      {
-        items.map((item, i) => <Item key={i} item={item} />)
-      }
-
-
-
+    <Carousel>
+      {hotels.map((hotel, index) => (
+        <HotelItem key={index} hotel={hotel} />
+      ))}
     </Carousel>
   );
 }
 
-function Item(props) {
+function HotelItem(props) {
+  const { img, title, points, prePrices, crrPrices, description,star } = props.hotel;
+
   return (
-
-    <Paper sx={{boxShadow:'none'}}>
-
-      <div className='card-container'>
-        <div className='cards'>
-          <img src={props.item.img1} alt={props.item.title1}/>
-          <div className='item-title'>
-            <div className='title-name'>{props.item.title1}</div>
-            <div>
-              <i className="fa-solid fa-heart"></i>{props.item.point1}
+    <Paper sx={{ boxShadow: 'none' }}>
+      <div className="card-container">
+        {img.map((image, index) => (
+          <div className="cards" key={index}>
+            <Link to="/detail">
+              <img src={image} alt={title[index]} />
+            </Link>
+            <div className="item-title">
+              <Link to="/detail" className="title-name">{title[index]}</Link>
+              <div>
+                <i className="fa-solid fa-heart"></i>
+                {points[index]}
+              </div>
             </div>
-          </div>
-          <div>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-          </div>
-          <div>
-            {props.item.descriptions}
-          </div>
-          <div className='price-name'>
-            ${props.item.crrPrice1} per night
-          </div>
-        </div>
-        <div className='cards'>
-          <img src={props.item.img2} alt={props.item.title2} />
-          <div className='item-title'>
-            <div className='title-name'>{props.item.title2}</div>
             <div>
-              <i className="fa-solid fa-heart"></i>{props.item.point1}
+            {star[index] >= 1 ? <i className="fa-sharp fa-solid fa-star"></i>
+                    : <i class="fa-regular fa-star"></i>
+                  }
+                  {star[index] >= 2 ? <i className="fa-sharp fa-solid fa-star"></i>
+                    : <i class="fa-regular fa-star"></i>
+                  }
+                  {star[index] >= 3 ? <i className="fa-sharp fa-solid fa-star"></i>
+                    : <i class="fa-regular fa-star"></i>
+                  }
+                  {star[index] >= 4 ? <i className="fa-sharp fa-solid fa-star"></i>
+                    : <i class="fa-regular fa-star"></i>
+                  }
+                  {star[index] >= 5 ? <i className="fa-sharp fa-solid fa-star"></i>
+                    : <i class="fa-regular fa-star"></i>
+                  }
             </div>
+            <div>{description}</div>
+            <div className="price-name">${crrPrices[index]} per night</div>
           </div>
-          <div>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-          </div>
-          <div>
-            {props.item.descriptions}
-          </div>
-          <div className='price-name'>
-            ${props.item.crrPrice2} per night
-          </div>
-        </div>
-        <div className='cards'>
-          <img src={props.item.img3} alt={props.item.title3} />
-          <div className='item-title'>
-            <div className='title-name'>{props.item.title3}</div>
-            <div>
-              <i className="fa-solid fa-heart"></i>{props.item.point1}
-            </div>
-          </div>
-          <div>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-          </div>
-          <div>
-            {props.item.descriptions}
-          </div>
-          <div className='price-name'>
-            ${props.item.crrPrice3} per night
-          </div>
-        </div>
+        ))}
       </div>
-
     </Paper>
-
-
-  )
+  );
 }
 
-export default Example;
+export default HotelCarousel;

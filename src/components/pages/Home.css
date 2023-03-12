@@ -42,6 +42,7 @@
   display: flex;
   flex-direction: column;
   gap:10px;
+  position: relative;
 }
 
 .cards img{
@@ -55,7 +56,16 @@
   justify-content: space-between;
 }
 
+.bookmark{
+  color:#fff;
+  position: absolute;
+  top:14px;
+  right:14px;
+}
 
+.bookmark:hover{
+  cursor:pointer;
+}
 
 .item-title i{
   margin-right: 10px;
