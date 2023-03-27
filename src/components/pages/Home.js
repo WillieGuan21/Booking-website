@@ -7,9 +7,12 @@ import { Button } from '@mui/material';
 import History from '../History';
 import Dialog from '../Dialog';
 import { Link } from 'react-router-dom';
+import OutlineBtn from '../OutlineBtn';
 
 function Home() {
   const [promotions, setPromotions] = useState([]);
+  const supabase = createClient("https://kopxeuppkzsovmcingyd.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtvcHhldXBwa3pzb3ZtY2luZ3lkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzYwOTk0MzUsImV4cCI6MTk5MTY3NTQzNX0.7F4dct9mG2zDAnnM9mm5Q7ql1hOvclCtlqsgEeT-2wI");
+
   useEffect(() => {
     // const fetchData = async () => {
     //   const supabase = createClient("https://kopxeuppkzsovmcingyd.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtvcHhldXBwa3pzb3ZtY2luZ3lkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzYwOTk0MzUsImV4cCI6MTk5MTY3NTQzNX0.7F4dct9mG2zDAnnM9mm5Q7ql1hOvclCtlqsgEeT-2wI");
@@ -17,11 +20,13 @@ function Home() {
     //   setPromotions(data);
     // }
     // fetchData();
+
+
     getProducts()
   }, []);
 
-  const supabase = createClient("https://kopxeuppkzsovmcingyd.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtvcHhldXBwa3pzb3ZtY2luZ3lkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzYwOTk0MzUsImV4cCI6MTk5MTY3NTQzNX0.7F4dct9mG2zDAnnM9mm5Q7ql1hOvclCtlqsgEeT-2wI");
-  
+ 
+
   async function getProducts(){
     const { data, error } = await supabase.from("hotels").select("*");
     setPromotions(data);
@@ -31,7 +36,7 @@ function Home() {
   const showFilterBtn = () => {
     setFilterBtn(!filterBtn)
   };
-
+  
 
   const bookmarkControl = async (i) =>{
     const updatedData = {isBookmark:!i.isBookmark};
@@ -70,7 +75,7 @@ function Home() {
                   <img src={i.img_url} />
                 </Link>
                 <i className={`${i.isBookmark ? 'fa-solid' : 'fa-regular'} fa-regular fa-bookmark bookmark`}
-                  //onClick={()=>bookmarkControl(i)}
+                  // onClick={()=>bookmarkControl(i)}
                 ></i>
                 <div className='item-title'>
                   <Link to="/detail" className='title-name'>{i.name}</Link>
@@ -108,7 +113,7 @@ function Home() {
             ))}
           </div>
           <div className='viewAll-btn'>
-            <Button variant="outlined" sx={{ borderRadius: '0px' }}>View all</Button>
+            <OutlineBtn name="View all"></OutlineBtn>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@
   margin-left: 20px;
 }
 
-.roomtype-body a{
+.roomtype-body .details{
   text-decoration: underline;
   color:black;
 }
@@ -37,4 +37,3 @@
   font-size: 20px;
   font-weight: 600;
 }
-

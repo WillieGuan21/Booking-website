@@ -84,9 +84,9 @@ function Hero({ showFilterBtn }) {
                 }}
                 renderInput={(startProps, endProps) => (
                   <React.Fragment>
-                    <Myinput {...startProps} sx={{ backgroundColor: '#fff', borderRadius: '0px' }} />
+                    <Myinput {...startProps} />
                     <Box sx={{ mx: 2 }}> to </Box>
-                    <Myinput {...endProps} sx={{ backgroundColor: '#fff', borderRadius: '0px' }} />
+                    <Myinput {...endProps} />
                   </React.Fragment>
                 )}
               />

@@ -16,6 +16,7 @@ import Slider from '@mui/material/Slider';
 import Rating from '@mui/material/Rating';
 import './Dialog.css';
 import PicturePicker from './PicturePicker';
+import OutlineBtn from './OutlineBtn';
 
 
 
@@ -111,9 +112,7 @@ function FilterDialog() {
 
   return (
     <>
-      <Button variant="outlined" sx={{width:'100%',borderRadius:'0px'}} onClick={handleClickOpen}>
-        Sorting and Filter
-      </Button>
+      <OutlineBtn name="Sorting and Filter" width="100%" onClick={ handleClickOpen }></OutlineBtn>
       <Dialog
         open={open}
         fullWidth={true}
@@ -276,10 +275,8 @@ function FilterDialog() {
         </DialogContent>
         <DialogActions>
           <div className='dia-actionBox'>
-            <Button variant="outlined" onClick={handleClose}>Cancel all</Button>
-            <Button variant="outlined" onClick={handleClose} autoFocus>
-              Show result 500+
-            </Button>
+            <OutlineBtn name="Cancel all" onClick={handleClose}></OutlineBtn>
+            <OutlineBtn name="Show result 500+" onClick={handleClose} autoFocus></OutlineBtn>
           </div>
 
         </DialogActions>

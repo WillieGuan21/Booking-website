@@ -1,6 +1,7 @@
 import React from "react";
 import './Roomtype.css';
-import { Button } from '@mui/material';
+import OutlineBtn from './OutlineBtn';
+import { Link } from 'react-router-dom';
 
 function Roomtype(props) {
   const { img, name, facilities, days, price } = props.rtype;
@@ -17,14 +18,16 @@ function Roomtype(props) {
               ))}
             </ul>
           </div>
-          <a href="#">More details</a>
+          <a href="#" className="details">More details</a>
           <div className="rtype-refound">Fully refundable before {days[0]}, {days[1]} {days[2]}</div>
           <div className="rtype-price">
             <div>${price[index]} per night</div>
             <div>includes taxes & fees</div>
           </div>
           <div>
-            <Button variant="outlined" sx={{ width: '100%', borderRadius: '0px' }}>Reserve now</Button>
+            <Link to="/payment">
+               <OutlineBtn name="Reserve now" width="100%"></OutlineBtn>
+            </Link>
           </div>
         </div>
       )}
